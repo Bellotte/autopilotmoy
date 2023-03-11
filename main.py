@@ -8,12 +8,6 @@ def on_button_pressed_a():
         basic.show_icon(IconNames.HOUSE)
 input.on_button_pressed(Button.A, on_button_pressed_a)
 
-def on_button_pressed_ab():
-    global Menu
-    Menu = "STOP"
-    basic.show_icon(IconNames.SKULL)
-input.on_button_pressed(Button.AB, on_button_pressed_ab)
-
 def on_button_pressed_b():
     global Target, Menu
     if Menu == "START":
@@ -23,6 +17,12 @@ def on_button_pressed_b():
         Target = input.compass_heading()
         basic.show_icon(IconNames.HOUSE)
 input.on_button_pressed(Button.B, on_button_pressed_b)
+
+def on_button_pressed_ab():
+    global Menu
+    Menu = "STOP"
+    basic.show_icon(IconNames.SKULL)
+input.on_button_pressed(Button.AB, on_button_pressed_ab)
 
 def CalcDelta(fTarget: number):
     global fDelta
@@ -34,9 +34,9 @@ def CalcDelta(fTarget: number):
 MoyDelta = 0
 index = 0
 SommeDelta = 0
-Menu = ""
 Target = 0
 fDelta = 0
+Menu = ""
 Menu = "STOP"
 NbIndex = 6
 fDelta = 999
@@ -44,7 +44,6 @@ Target = 999
 Delta = 999
 servos.P0.set_angle(90)
 EchantDelta = [0, 0, 0, 0, 0, 0]
-TabOK = 1
 basic.show_icon(IconNames.SKULL)
 
 def on_every_interval():
