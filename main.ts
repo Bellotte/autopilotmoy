@@ -10,7 +10,8 @@ input.onButtonPressed(Button.A, function on_button_pressed_a() {
     
 })
 input.onButtonPressed(Button.AB, function on_button_pressed_ab() {
-    let Menu = "STOP"
+    
+    Menu = "STOP"
     basic.showIcon(IconNames.Skull)
 })
 input.onButtonPressed(Button.B, function on_button_pressed_b() {
@@ -38,9 +39,9 @@ function CalcDelta(fTarget: number): number {
 let MoyDelta = 0
 let index = 0
 let SommeDelta = 0
+let Menu = ""
 let Target = 0
 let fDelta = 0
-let Menu = ""
 Menu = "STOP"
 let NbIndex = 6
 fDelta = 999

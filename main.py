@@ -9,6 +9,7 @@ def on_button_pressed_a():
 input.on_button_pressed(Button.A, on_button_pressed_a)
 
 def on_button_pressed_ab():
+    global Menu
     Menu = "STOP"
     basic.show_icon(IconNames.SKULL)
 input.on_button_pressed(Button.AB, on_button_pressed_ab)
@@ -33,9 +34,9 @@ def CalcDelta(fTarget: number):
 MoyDelta = 0
 index = 0
 SommeDelta = 0
+Menu = ""
 Target = 0
 fDelta = 0
-Menu = ""
 Menu = "STOP"
 NbIndex = 6
 fDelta = 999
@@ -47,7 +48,7 @@ TabOK = 1
 basic.show_icon(IconNames.SKULL)
 
 def on_every_interval():
-    global Delta
+    global Delta, Menu
     if Menu == "START":
         # basic.show_number(Target)
         Delta = CalcDelta(Target)
@@ -55,7 +56,7 @@ def on_every_interval():
 loops.every_interval(200, on_every_interval)
 
 def on_every_interval2():
-    global SommeDelta, index, MoyDelta
+    global SommeDelta, index, MoyDelta, Menu
     if Menu == "START":
         # Delta = CalcDelta(Target)
         basic.show_number(Delta)
